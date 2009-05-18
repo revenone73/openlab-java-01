@@ -2,6 +2,11 @@ package cn.openlab.oo;
 
 public class Dog extends Animal {
 
+	public Dog() {
+//		super();
+		System.out.println("一只狗产生了");
+	}
+
 	public void eat() {
 		if(legs == 4) {
 			System.out.println("sdfasdf");
@@ -18,4 +23,8 @@ public class Dog extends Animal {
 //	public void setLegs(int count) {
 //		legs = count;
 //	}
+	
+	public static void main(String[] args) {
+		Dog d = new Dog();
+	}
 }
