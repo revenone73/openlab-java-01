@@ -16,4 +16,8 @@ public class MyString {
 		String s = new String(cs);
 		return s;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(Integer.MAX_VALUE);
+	}
 }
