@@ -1,64 +1,34 @@
 package cn.openlab.ui;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowStateListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class Test {
 
 	public static void main(String[] args) {
-		final JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setTitle("hello");
-		frame.setVisible(true);
-		JButton btn = new JButton();
-		btn.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-		frame.addWindowStateListener(new WindowStateListener() {
-
-			@Override
-			public void windowStateChanged(WindowEvent e) {
-				
-			}
-			
-		});
-		btn.setText("click");
-		frame.add(btn);
-		frame.setSize(100, 100);
+		System.out.println(getWordCount("hello"));
+		Pattern p = Pattern.compile("");
+		Matcher m = p.matcher("");
+		m.groupCount();
 	}
+	
+    private static int getWordCount(String sentence) {
+        int count = 0;
+        String[] wordsWithoutBlank = sentence.split(" ");
+        if(wordsWithoutBlank != null) {
+            for(int i = 0; i < wordsWithoutBlank.length; i++) {
+                String wordWithoutBlank = wordsWithoutBlank[i];
+                String[] wordsWithoutComma = wordWithoutBlank.split(",");
+                if(wordsWithoutComma != null) {
+                    for(int j = 0; j < wordsWithoutComma.length; j++) {
+                        String wordWithoutComma = wordsWithoutComma[j];
+                        String[] wordsWithoutDot = wordWithoutComma.split(".");
+                        count += wordsWithoutDot.length;
+                    }
+                }
+            }
+        }
+        return count;
+    }
 }
