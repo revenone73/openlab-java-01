@@ -17,7 +17,7 @@ public class ThreadDemo {
 			}
 		};
 		t.start();
-		
+
 		Thread t2 = new Thread(new Runnable() {
 
 			@Override
