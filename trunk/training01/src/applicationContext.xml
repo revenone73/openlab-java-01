@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		- Application context definition for JPetStore's business layer. -
+		Contains bean references to the transaction manager and to the DAOs in
+		- dataAccessContext-local/jta.xml (see web.xml's
+		"contextConfigLocation").
+	-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="configLocation">
+			<value>hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="baseTransaction" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="proxyTargetClass" value="true"/>
+		<property name="transactionAttributes">
+		<props>
+			<prop key="get*">PROPAGATION_REQUIRED</prop>
+			<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+			<prop key="save*">PROPAGATION_REQUIRED</prop>
+			<prop key="add*">PROPAGATION_REQUIRED</prop>
+			<prop key="update*">PROPAGATION_REQUIRED</prop>
+			<prop key="remove*">PROPAGATION_REQUIRED</prop>
+			<prop key="process*">PROPAGATION_REQUIRED</prop>
+		</props>
+		</property>
+	</bean>
+	<bean id="genderDaoTarget" class="cn.openlab.spring.dao.GenderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="genderDao" parent="baseTransaction">
+		<property name="target" ref="genderDaoTarget"></property>
+	</bean>
+</beans>
