@@ -126,13 +126,13 @@ public class SearchPanel extends javax.swing.JPanel {
             }
         });
 
-        radioName.setLabel("name");
+        radioName.setText("name");
 
-        radioPassword.setLabel("password");
+        radioPassword.setText("password");
 
-        radioId.setLabel("ID");
+        radioId.setText("ID");
 
-        radioAge.setLabel("age");
+        radioAge.setText("age");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
