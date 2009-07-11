@@ -5,9 +5,9 @@ import java.util.List;
 
 public class UserDAO {
 
-	private ArrayList<User> users = new ArrayList<User>();
+	private static ArrayList<User> users = new ArrayList<User>();
 
-	public void add(User u) throws InvalidUserException {
+	public void add(User u) throws InvalidUserException, UserDuplicationException {
 		if(u != null) {
 			Integer id = u.getId();
 			if(id == null) {
@@ -17,7 +17,7 @@ public class UserDAO {
 			if(user == null) {
 				users.add(u);
 			} else {
-				updateUserById(user);
+				throw new UserDuplicationException();
 			}
 		}
 	}
