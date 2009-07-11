@@ -8,6 +8,7 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost/trainning001</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
+
 		<mapping class="cn.openlab.hibernate.domain.Student" />
 		<mapping class="cn.openlab.hibernate.domain.Gender" />
 	</session-factory>
