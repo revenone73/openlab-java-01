@@ -11,8 +11,6 @@
 
 package cn.openlab.test;
 
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
