@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class EditPanel extends javax.swing.JPanel {
 
-    private UserDAO userDao = new UserDAO();
+    private UserDAO userDao = new UserDAOMemoryImpl();
     /** Creates new form EditPanel */
     public EditPanel() {
         initComponents();
