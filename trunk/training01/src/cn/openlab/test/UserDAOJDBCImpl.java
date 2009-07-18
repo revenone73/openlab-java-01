@@ -100,7 +100,6 @@ public class UserDAOJDBCImpl implements UserDAO {
 					sql += " and password ='" + password + "'";
 				}
 			}
-			System.out.println(sql);
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			
