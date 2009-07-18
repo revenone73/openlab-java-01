@@ -18,7 +18,7 @@ package cn.openlab.test;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private UserDAO userDao = new UserDAO();
+    private UserDAO userDao = new UserDAOMemoryImpl();
     /** Creates new form NewJFrame */
     public MainFrame() {
         initComponents();
