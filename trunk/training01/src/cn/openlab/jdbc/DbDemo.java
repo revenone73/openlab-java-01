@@ -45,7 +45,6 @@ public class DbDemo {
 				Timestamp dateOfBirth = rs.getTimestamp("date_of_birth");
 				int gender = rs.getInt("gender");
 				System.out.println("ID:" + no + ",name:" + name + ",gender:" + gender + ",Date of birth:" + dateOfBirth);
-				
 			}
 		}
 	}
