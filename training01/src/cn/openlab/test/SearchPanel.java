@@ -29,7 +29,7 @@ import javax.swing.table.TableColumnModel;
  */
 public class SearchPanel extends javax.swing.JPanel {
 
-    private UserDAO userDao = new UserDAOMemoryImpl();
+    private UserDAO userDao = new UserDAOJDBCImpl();
     private MainFrame parent;
     /** Creates new form SearchPanel */
     public SearchPanel() {
