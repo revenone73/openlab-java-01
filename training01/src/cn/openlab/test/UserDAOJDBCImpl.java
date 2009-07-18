@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 没有处理异常、链接等
+ * 没有处理异常、资源清理等
+ * 没有处理sql注入
  * @author johnny
  *
  */
@@ -198,7 +199,7 @@ public class UserDAOJDBCImpl implements UserDAO {
 		User u = new User();
 		u.setAge(32);
 		u.setName("jiabao1");
-		u.setPassword("g' OR '1'='1");
+		u.setPassword("g' OR '1'='1");//SQL Injection
 		UserDAO dao= new UserDAOJDBCImpl();
 		List<User> users = dao.findByCondition(u);
 		for(User user : users) {
