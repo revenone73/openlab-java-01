@@ -121,12 +121,12 @@ public class EditPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "请输入一个整形的年龄！");
             return;
         }
-        try{
-            user.setId(Integer.parseInt(txtId.getText()));
-        }catch(NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(this, "请输入一个整形的ID！");
-            return;
-        }
+//        try{
+//            user.setId(Integer.parseInt(txtId.getText()));
+//        }catch(NumberFormatException nfe) {
+//            JOptionPane.showMessageDialog(this, "请输入一个整形的ID！");
+//            return;
+//        }
         user.setName(txtName.getText());
         user.setPassword(txtPassword.getText());
         if(forUpdate) {
