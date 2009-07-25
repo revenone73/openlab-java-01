@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
  */
 public class EditPanel extends javax.swing.JPanel {
 
-    private UserDAO userDao = new UserDAOJDBCImpl();
     /** Creates new form EditPanel */
     public EditPanel() {
         initComponents();
@@ -131,17 +130,17 @@ public class EditPanel extends javax.swing.JPanel {
         user.setName(txtName.getText());
         user.setPassword(txtPassword.getText());
         if(forUpdate) {
-            userDao.updateUserById(user);
+        	UserDaoManager.getDao().updateUserById(user);
         } else {
             try {
-                userDao.add(user);
+            	UserDaoManager.getDao().add(user);
             } catch (InvalidUserException ex) {
                 JOptionPane.showMessageDialog(this, "用户号码不能为空，请重新输入！");
                 return;
             } catch(UserDuplicationException ude) {
                 int ret = JOptionPane.showConfirmDialog(this, "用户号码不能重复，点击是更新该ID记录，否则取消该操作");
                 if(JOptionPane.YES_OPTION == ret) {
-                    userDao.updateUserById(user);
+                	UserDaoManager.getDao().updateUserById(user);
                 } else {
                     return;
                 }
