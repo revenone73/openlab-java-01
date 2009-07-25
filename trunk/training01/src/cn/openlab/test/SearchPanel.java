@@ -29,7 +29,6 @@ import javax.swing.table.TableColumnModel;
  */
 public class SearchPanel extends javax.swing.JPanel {
 
-    private UserDAO userDao = new UserDAOJDBCImpl();
     private MainFrame parent;
     /** Creates new form SearchPanel */
     public SearchPanel() {
@@ -238,7 +237,7 @@ public class SearchPanel extends javax.swing.JPanel {
         if(!"".equals(txtId.getText())) {
             sample.setId(Integer.parseInt(txtId.getText()));
         }
-        List<User> users = userDao.findByCondition(sample);
+        List<User> users = UserDaoManager.getDao().findByCondition(sample);
         Collections.sort(users, new Comparator<User>() {
 
             public int compare(User o1, User o2) {
@@ -287,7 +286,7 @@ public class SearchPanel extends javax.swing.JPanel {
         int row = jTable1.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         int id = (Integer)model.getValueAt(row, 0);
-        userDao.deleteById(id);
+        UserDaoManager.getDao().deleteById(id);
         model.removeRow(row);
     }//GEN-LAST:event_jButton3ActionPerformed
 

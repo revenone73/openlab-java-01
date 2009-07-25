@@ -11,6 +11,8 @@
 
 package cn.openlab.test;
 
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +20,7 @@ package cn.openlab.test;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private UserDAO userDao = new UserDAOJDBCImpl();
+//    private UserDAO userDao = UserDaoManager.getDao();
     /** Creates new form NewJFrame */
     public MainFrame() {
         initComponents();
@@ -37,10 +39,12 @@ public class MainFrame extends javax.swing.JFrame {
         editPanel1 = new cn.openlab.test.EditPanel();
         searchPanel1 = new cn.openlab.test.SearchPanel(this);
         jPanel1 = new javax.swing.JPanel();
+        configPanel1 = new cn.openlab.test.ConfigPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -79,6 +83,8 @@ public class MainFrame extends javax.swing.JFrame {
             .addGap(0, 358, Short.MAX_VALUE)
         );
 
+        configPanel1.setVisible(false);
+
         jMenu1.setText("操作");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +107,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem5.setText("配置");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
 
         jMenuItem4.setText("退出");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +145,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(configPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -139,10 +155,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(configPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -175,7 +192,15 @@ public class MainFrame extends javax.swing.JFrame {
         User u = new User();
         editPanel1.setUser(u, false);
         editPanel1.setVisible(true);
+        configPanel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        configPanel1.setVisible(true);
+        jPanel1.setVisible(false);
+        editPanel1.setVisible(false);
+        searchPanel1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -189,6 +214,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private cn.openlab.test.ConfigPanel configPanel1;
     private cn.openlab.test.EditPanel editPanel1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
@@ -198,6 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private cn.openlab.test.SearchPanel searchPanel1;
     // End of variables declaration//GEN-END:variables
@@ -205,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
     public void showUpdatePanelById(int id) {
         this.jPanel1.setVisible(false);
         this.searchPanel1.setVisible(false);
-        User u = userDao.findById(id);
+        User u = UserDaoManager.getDao().findById(id);
         this.editPanel1.setUser(u, true);
         this.editPanel1.setVisible(true);
     }
