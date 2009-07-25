@@ -8,7 +8,7 @@
 		<property name="hibernate.connection.url">jdbc:sqlserver://127.0.0.1:1433;DatabaseName=java_demo</property>
 		<property name="hibernate.connection.username">sa</property>
 		<property name="hibernate.connection.password">1111</property>
-<!-- 
+		<!-- 
 		<mapping class="cn.openlab.hibernate.domain.Student" />
 		<mapping class="cn.openlab.hibernate.domain.Gender" />
 		 -->
