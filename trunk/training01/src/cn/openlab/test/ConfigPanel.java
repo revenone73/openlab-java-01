@@ -91,7 +91,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         } else if(rbJDBC.isSelected()) {
         	UserDaoManager.TYPE = "cn.openlab.test.UserDAOJDBCImpl";
         } else if(rbHibernate.isSelected()) {
-        	UserDaoManager.TYPE = "hibernate";
+        	UserDaoManager.TYPE = "cn.openlab.test.UserDAOHibernateImpl";
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
