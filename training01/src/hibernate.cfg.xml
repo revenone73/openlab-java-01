@@ -11,7 +11,8 @@
 		<!-- 
 		<mapping class="cn.openlab.hibernate.domain.Student" />
 		<mapping class="cn.openlab.hibernate.domain.Gender" />
-		 -->
-		 <mapping class="cn.openlab.test.User"/>
+		<mapping class="cn.openlab.test.User"/>
+		-->
+		<mapping class="cn.openlab.game.entity.Member"/>
 	</session-factory>
 </hibernate-configuration>

@@ -28,12 +28,12 @@ public class ConfigureServlet extends HttpServlet {
 		out.println("</body></html>");
 		out.close();
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String impl = req.getParameter("implType");
 		UserDaoManager.TYPE = impl;
-		resp.sendRedirect("homepage");
+		resp.sendRedirect("index.jsp");
 	}
 }
