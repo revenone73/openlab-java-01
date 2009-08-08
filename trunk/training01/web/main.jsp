@@ -9,5 +9,6 @@
 	Member member = (Member)request.getAttribute("Member");
 %>
 	Welcome, <%=member.getUserName() %>!
+<a href="profile">Edit my profile!</a>
 </body>
 </html>
