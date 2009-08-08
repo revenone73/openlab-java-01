@@ -22,15 +22,15 @@ public class LoginServlet extends HttpServlet {
 		String name = req.getParameter("userName");
 		String password = req.getParameter("password");
 		Member member = memberDao.getMemberByUserName(name);
-		ServletOutputStream out = resp.getOutputStream();
-		String msg;
 		if(member == null) {
-			msg = "member doesn't exist";
+			req.setAttribute("FailedMsg", "member doesn't exist");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		} else if(!member.getPassword().equals(password)) {
-			msg = "password not match";
+			req.setAttribute("FailedMsg", "password not match");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		} else {
-			msg = "login succeed";
+			req.setAttribute("Member", member);
+			req.getRequestDispatcher("main.jsp").forward(req, resp);
 		}
-		out.println(msg);
 	}
 }
