@@ -8,7 +8,7 @@
 <body>
 
 <form action="profile" method="post">
-	User Name:<input name="userName" value="<%=member.getUserName() %>"/><br/>
+	User Name:<input name="userName" value="<%=member.getUserName() %>" readonly/><br/>
 	Password:<input name="password" value="<%=member.getPassword() %>"/><br/>
 	E-mail:<input name="email" value="<%=member.getEmail() %>"/><br/>
 	<input type="submit" value="Save"/>
