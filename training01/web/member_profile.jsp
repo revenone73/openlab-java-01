@@ -1,13 +1,12 @@
 
 <%@page import="cn.openlab.game.entity.Member"%>
+<%@include file="/force_login.jsp" %>
 <html>
 	<head>
 		<title>Home page</title>
 	</head>
 <body>
-<%
-	Member member = (Member)session.getAttribute("CurrentMember");
-%>
+
 <form action="profile" method="post">
 	User Name:<input name="userName" value="<%=member.getUserName() %>"/><br/>
 	Password:<input name="password" value="<%=member.getPassword() %>"/><br/>
