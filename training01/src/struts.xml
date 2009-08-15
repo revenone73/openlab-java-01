@@ -25,11 +25,10 @@
     	<global-results>
     		<result name="close">/pages/close.jsp</result>
     	</global-results>
-        <action name="User" class="edu.wish.action.UserAction">
-            <result name="success">/pages/user/index.jsp</result>
-            <result name="create">/pages/user/create.jsp</result>
-            <result name="delete">/pages/user/delete.jsp</result>
-            <result name="load">/pages/user/edit.jsp</result>
+
+        <action name="login" class="cn.openlab.game.web.LoginAction">
+            <result name="success">/main.jsp</result>
+            <result name="fail">/login.jsp</result>
         </action>
     </package>
 
