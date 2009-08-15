@@ -49,6 +49,7 @@
     </filter-mapping>
 
 <!--  -->
+<!-- 
     <servlet>
         <servlet-name>HomePage</servlet-name>
         <servlet-class>cn.openlab.web.HomePageServlet</servlet-class>
@@ -87,7 +88,7 @@
 		<servlet-name>Profile</servlet-name>
 		<url-pattern>/profile</url-pattern>
 	</servlet-mapping>
-
+ -->
     <welcome-file-list>
     	<welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

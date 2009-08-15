@@ -1,12 +1,10 @@
-<%@page import="cn.openlab.game.entity.Member"%>
-<%@include file="/force_login.jsp" %>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 	<head>
 		<title>Home page</title>
 	</head>
 <body>
-	Welcome, <%=member.getUserName() %>!
+	Welcome, <s:property value="member.userName"/>!
 <a href="profile">Edit my profile!</a>
 </body>
 </html>

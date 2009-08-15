@@ -14,6 +14,7 @@ import cn.openlab.game.entity.Member;
 public class EditProfileServlet extends HttpServlet {
 
 	private MemberDao memberDao = new MemberDaoImpl();
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -22,8 +23,8 @@ public class EditProfileServlet extends HttpServlet {
 			req.getRequestDispatcher("member_profile.jsp").forward(req, resp);
 		} else {
 			Member member = new Member();
-			member.setEmail(req.getParameter(""));
-			member.setPassword(req.getParameter(""));
+			member.setEmail(req.getParameter("email"));
+			member.setPassword(req.getParameter("password"));
 			member.setUserName(name);
 			memberDao.updateMember(member);
 			req.getRequestDispatcher("main.jsp").forward(req, resp);
