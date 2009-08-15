@@ -30,6 +30,11 @@
             <result name="success">/main.jsp</result>
             <result name="fail">/login.jsp</result>
         </action>
+        
+        <action name="profile" class="cn.openlab.game.web.ProfileAction">
+        	<result name="success">/member_profile.jsp</result>
+        </action>
+
     </package>
 
 </struts>
