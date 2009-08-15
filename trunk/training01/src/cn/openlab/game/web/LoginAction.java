@@ -21,6 +21,7 @@ public class LoginAction {
 		String userName = member.getUserName();
 		Member temp = memberDao.getMemberByUserName(userName);
 		if(temp != null && temp.getPassword().equals(member.getPassword())) {
+			
 			return "success";
 		}
 		return "fail";
