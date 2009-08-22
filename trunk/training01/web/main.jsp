@@ -5,6 +5,6 @@
 	</head>
 <body>
 	Welcome, <s:property value="member.userName"/>!
-<a href="profile">Edit my profile!</a>
+<a href="profile.do?member.userName=<s:property value="member.userName"/>">Edit my profile!</a>
 </body>
 </html>
