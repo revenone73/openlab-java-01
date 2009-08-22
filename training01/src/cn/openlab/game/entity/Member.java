@@ -5,11 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "members")
+@Table(name = "members", 
+		uniqueConstraints = {@UniqueConstraint(columnNames={"userName"})})
 public class Member {
 
+	public Member(){
+		System.out.println("create member object");
+	}
 	private Integer id;
 	private String userName;
 	private String password;
@@ -29,6 +34,7 @@ public class Member {
 		return userName;
 	}
 	public void setUserName(String userName) {
+		System.out.println("set user name");
 		this.userName = userName;
 	}
 	
@@ -37,6 +43,7 @@ public class Member {
 		return password;
 	}
 	public void setPassword(String password) {
+		System.out.println("set password");
 		this.password = password;
 	}
 	

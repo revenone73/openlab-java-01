@@ -22,4 +22,9 @@ public class ProfileAction {
 		member = memberDao.getMemberByUserName(userName);
 		return "success";
 	}
+	
+	public String register() {
+		memberDao.saveMember(member);
+		return "success";
+	}
 }
