@@ -10,10 +10,12 @@ public class LoginAction {
 	private Member member;
 	
 	public void setMember(Member member) {
+		System.out.println("set member");
 		this.member = member;
 	}
 
 	public Member getMember() {
+		System.out.println("get member");
 		return member;
 	}
 

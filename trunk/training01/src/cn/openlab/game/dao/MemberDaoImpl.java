@@ -41,4 +41,17 @@ public class MemberDaoImpl implements MemberDao {
 		trans.commit();
 	}
 
+	@Override
+	public void saveMember(Member member) {
+		Session session = DaoUtils.createSession();
+		Transaction trans = session.beginTransaction();
+		try {
+			Integer id = (Integer) session.save(member);
+			System.out.println(id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		trans.commit();
+	}
+
 }

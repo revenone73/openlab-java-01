@@ -7,4 +7,6 @@ public interface MemberDao {
 	Member getMemberByUserName(String userName);
 
 	void updateMember(Member member);
+	
+	void saveMember(Member member);
 }
