@@ -12,9 +12,6 @@ import javax.persistence.UniqueConstraint;
 		uniqueConstraints = {@UniqueConstraint(columnNames={"userName"})})
 public class Member {
 
-	public Member(){
-		System.out.println("create member object");
-	}
 	private Integer id;
 	private String userName;
 	private String password;
@@ -46,7 +43,7 @@ public class Member {
 		System.out.println("set password");
 		this.password = password;
 	}
-	
+
 	@Column
 	public String getEmail() {
 		return email;

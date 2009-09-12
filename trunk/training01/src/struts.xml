@@ -34,6 +34,12 @@
         <action name="profile" class="cn.openlab.game.web.ProfileAction">
         	<result name="success">/member_profile.jsp</result>
         </action>
+        
+        <action name="building" class="cn.openlab.game.web.BuildingAction">
+        	<result name="success">/building_list.jsp</result>
+        	<result name="save_succeed">/save_succeed.jsp</result>
+        	<result name="load">/building_edit.jsp</result>
+        </action>
 
         <action name="main" class="cn.openlab.game.web.MainAction">
         	<result name="success">/main.jsp</result>
@@ -43,9 +49,12 @@
         	<result name="success">/chat_room_main.jsp</result>
         	<result name="list">/chat_room_list.jsp</result>
         </action>
-        
+
         <action name="math" class="cn.openlab.demo.MathAction">
         	<result name="success">/math_result.jsp</result>
+        </action>
+
+        <action name="mathLoad" class="cn.openlab.demo.MathAction" method="load">
         	<result name="load">/math.jsp</result>
         </action>
 
