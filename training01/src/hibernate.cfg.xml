@@ -15,5 +15,6 @@
 		-->
 		<mapping class="cn.openlab.game.entity.Member"/>
 		<mapping class="cn.openlab.game.entity.MemberResource"/>
+		<mapping class="cn.openlab.game.entity.Building"/>
 	</session-factory>
 </hibernate-configuration>
