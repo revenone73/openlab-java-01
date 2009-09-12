@@ -23,7 +23,7 @@
 		</interceptors>
 		<default-interceptor-ref name="defaultComponentStack"></default-interceptor-ref>
     	<global-results>
-    		<result name="close">/pages/close.jsp</result>
+    		<result name="login">/login.jsp</result>
     	</global-results>
 
         <action name="login" class="cn.openlab.game.web.LoginAction">
@@ -33,6 +33,20 @@
         
         <action name="profile" class="cn.openlab.game.web.ProfileAction">
         	<result name="success">/member_profile.jsp</result>
+        </action>
+
+        <action name="main" class="cn.openlab.game.web.MainAction">
+        	<result name="success">/main.jsp</result>
+        </action>
+
+        <action name="chat" class="cn.openlab.game.web.ChatAction">
+        	<result name="success">/chat_room_main.jsp</result>
+        	<result name="list">/chat_room_list.jsp</result>
+        </action>
+        
+        <action name="math" class="cn.openlab.demo.MathAction">
+        	<result name="success">/math_result.jsp</result>
+        	<result name="load">/math.jsp</result>
         </action>
 
     </package>
