@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
-public class DaoUtils {
+public class MySessionFactory {
 
 	private final static SessionFactory factory;
 	static {
