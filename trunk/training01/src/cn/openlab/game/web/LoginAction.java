@@ -13,10 +13,18 @@ import cn.openlab.game.entity.MemberResource;
 
 public class LoginAction {
 
-	private MemberDao memberDao = new MemberDaoImpl();
+	private MemberDao memberDao;
 	private Member member;
-	private MemberResourceDao memberResourceDao = new MemberResourceDaoImpl();
+	private MemberResourceDao memberResourceDao;
 	
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+
+	public void setMemberResourceDao(MemberResourceDao memberResourceDao) {
+		this.memberResourceDao = memberResourceDao;
+	}
+
 	public void setMember(Member member) {
 		System.out.println("set member");
 		this.member = member;

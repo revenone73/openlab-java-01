@@ -9,8 +9,16 @@ import cn.openlab.game.entity.Member;
 public class ProfileAction {
 
 	private Member member;
-	private MemberDao memberDao = new MemberDaoImpl();
-	private MemberResourceDao memberResourceDao = new MemberResourceDaoImpl();
+	private MemberDao memberDao;
+	private MemberResourceDao memberResourceDao;
+
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+
+	public void setMemberResourceDao(MemberResourceDao memberResourceDao) {
+		this.memberResourceDao = memberResourceDao;
+	}
 
 	public Member getMember() {
 		return member;
