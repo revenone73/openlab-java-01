@@ -2,20 +2,17 @@ package cn.openlab.game.dao;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.openlab.game.entity.Building;
 
-public class BuildingDaoImpl implements BuildingDao {
+public class BuildingDaoImpl 
+	extends HibernateDaoSupport implements BuildingDao {
 
 	@Override
 	public List<Building> getAllBuildings() {
-		Session session = DaoUtils.createSession();
-		Query query = session.createQuery("from Building b");
-		List<Building> buildings = query.list();
-		return buildings;
+		getHibernateTemplate();
+		return getHibernateTemplate().find("from Building b");
 	}
 
 	public static void main(String[] args) {
@@ -25,10 +22,7 @@ public class BuildingDaoImpl implements BuildingDao {
 
 	@Override
 	public void saveBuilding(Building building) {
-		Session session = DaoUtils.createSession();
-		Transaction trans = session.beginTransaction();
-		session.save(building);
-		trans.commit();
+		getHibernateTemplate().save(building);
 	}
 
 	

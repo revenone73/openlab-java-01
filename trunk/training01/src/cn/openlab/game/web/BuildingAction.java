@@ -3,12 +3,14 @@ package cn.openlab.game.web;
 import java.util.List;
 
 import cn.openlab.game.dao.BuildingDao;
-import cn.openlab.game.dao.BuildingDaoImpl;
 import cn.openlab.game.entity.Building;
 
 public class BuildingAction {
 
-	private BuildingDao buildingDao = new BuildingDaoImpl();
+	private BuildingDao buildingDao;
+	public void setBuildingDao(BuildingDao buildingDao) {
+		this.buildingDao = buildingDao;
+	}
 	private List<Building> buildings;
 	private Building building;
 
@@ -32,7 +34,7 @@ public class BuildingAction {
 	public String load() {
 		return "load";
 	}
-	
+
 	public String save() {
 		buildingDao.saveBuilding(building);
 		return "save_succeed";
