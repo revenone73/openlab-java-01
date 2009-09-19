@@ -1,22 +1,26 @@
 package cn.openlab.game.web;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.dispatcher.SessionMap;
 
-import com.opensymphony.xwork2.ActionContext;
-
+import cn.openlab.game.dao.ChatMessageDao;
 import cn.openlab.game.entity.ChatMessage;
 import cn.openlab.game.entity.Member;
 
-public class ChatAction {
+import com.opensymphony.xwork2.ActionContext;
 
-	private static List<ChatMessage> messages = new ArrayList<ChatMessage>();
+public class ChatAction {
+	
+	private ChatMessageDao chatMessageDao;
+
+	public void setChatMessageDao(ChatMessageDao chatMessageDao) {
+		this.chatMessageDao = chatMessageDao;
+	}
 
 	public List<ChatMessage> getMessages() {
-		return messages;
+		return chatMessageDao.getAllMessages();
 	}
 
 	private ChatMessage message;
@@ -44,7 +48,7 @@ public class ChatAction {
 				message.setFrom(member);
 			}
 		}
-		messages.add(message);
+		chatMessageDao.saveMessage(message);
 		return "success";
 	}
 	

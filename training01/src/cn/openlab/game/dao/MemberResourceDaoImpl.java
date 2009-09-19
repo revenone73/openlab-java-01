@@ -2,6 +2,8 @@ package cn.openlab.game.dao;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.openlab.game.entity.MemberResource;
@@ -49,10 +51,11 @@ public class MemberResourceDaoImpl extends HibernateDaoSupport implements Member
 	}
 
 	public static void main(String[] args) {
-		MemberResourceDao dao = new MemberResourceDaoImpl();
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		MemberResourceDao dao = (MemberResourceDao) ac.getBean("memberResourceDao");
 		MemberResource m = dao.getMemberResourceByMemberId(1);
 		System.out.println(m);
-		System.out.println(m.getMember().getUserName());
 	}
 
 }
