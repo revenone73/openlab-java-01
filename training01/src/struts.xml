@@ -58,6 +58,27 @@
         	<result name="load">/math.jsp</result>
         </action>
 
+		<action name="hotpot" class="cn.openlab.spring.HotpotAction">
+			<result name="success">/hotpot.jsp</result>
+		</action>
+		
+		<action name="imageUpload" class="cn.openlab.game.web.ImageUploadAction">
+			<result name="success">/image_upload.jsp</result>
+			<result name="show">/image_show.jsp</result>
+		</action>
+		
+		<action name="myHome" class="cn.openlab.game.web.MyHomeAction">
+			<result>/my_home.jsp</result>
+		</action>
+		
+		<action name="homeMap" class="cn.openlab.game.web.HomeMapEditorAction">
+			<result>/home_map_insert.jsp</result>
+			<result name="list">/home_map_list.jsp</result>
+		</action>
+		
+		<action name="homeMapDetail" class="cn.openlab.game.web.HomeMapDetailEditorAction">
+			<result>/home_map_building.jsp</result>
+		</action>
     </package>
 
 </struts>

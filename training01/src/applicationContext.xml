@@ -51,13 +51,12 @@
 	</bean>
 	 -->
 
+	<bean id="buildingDaoTarget" class="cn.openlab.game.dao.BuildingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
 	 <bean id="buildingDao" parent="baseTransaction">
-	 	<property name="target">
-	 		<bean class="cn.openlab.game.dao.BuildingDaoImpl">
-	 			<property name="sessionFactory" ref="sessionFactory">
-	 			</property>
-	 		</bean>
-	 	</property>
+	 	<property name="target" ref="buildingDaoTarget"/>
 	 </bean>
 
 	 <bean id="memberDao" parent="baseTransaction">
@@ -77,7 +76,7 @@
 	 		</bean>
 	 	</property>
 	 </bean>
-	 
+
 	 <bean id="chatMessageDao" parent="baseTransaction">
 	 	<property name="target">
 	 		<bean class="cn.openlab.game.dao.ChatMessageDaoImpl">
@@ -86,5 +85,30 @@
 	 		</bean>
 	 	</property>
 	 </bean>
-	 
+
+	 <bean id="homeMapDao" parent="baseTransaction">
+	 	<property name="target">
+	 		<bean class="cn.openlab.game.dao.HomeMapDaoImpl">
+	 			<property name="sessionFactory" ref="sessionFactory">
+	 			</property>
+	 		</bean>
+	 	</property>
+	 </bean>
+
+	 <bean id="homeBuildingDao" parent="baseTransaction">
+	 	<property name="target">
+	 		<bean class="cn.openlab.game.dao.HomeBuildingDaoImpl">
+	 			<property name="sessionFactory" ref="sessionFactory">
+	 			</property>
+	 		</bean>
+	 	</property>
+	 </bean>
+
+	 <bean id="fishball" class="cn.openlab.spring.Fishball"></bean>
+	 <bean id="beaf" class="cn.openlab.spring.Beaf"></bean>
+
+	 <bean id="hotspot" class="cn.openlab.spring.Hotspot">
+	 	<property name="fishball" ref="fishball"></property>
+	 	<property name="beaf" ref="beaf"></property>
+	 </bean>
 </beans>
