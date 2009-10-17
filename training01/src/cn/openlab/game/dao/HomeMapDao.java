@@ -13,5 +13,5 @@ public interface HomeMapDao {
 	
 	HomeMap getHomeMapById(Integer id);
 	
-	void updateHomeMap(HomeMap map, HomeBuilding building);
+//	void updateHomeMap(HomeMap map, HomeBuilding building);
 }

@@ -61,7 +61,7 @@ public class HomeMapDetailEditorAction {
 		homeMap = homeMapDao.getHomeMapById(homeMap.getId());
 		homeBuilding.setHomeMap(homeMap);
 		Integer id = homeBuildingDao.saveHomeBuilding(homeBuilding);
-		homeMapDao.updateHomeMap(homeMap, homeBuilding);
+//		homeMapDao.updateHomeMap(homeMap, homeBuilding);
 
 		String dir = "E:\\ganymede_workspace\\training01\\web\\user_buildings\\";
 		FileOutputStream fos;
