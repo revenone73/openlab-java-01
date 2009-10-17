@@ -45,10 +45,10 @@ public class HomeMap {
 	public void setBuildings(Set<HomeBuilding> buildings) {
 		this.buildings = buildings;
 	}
-	public void addBuilding(HomeBuilding building) {
-		if(buildings == null) {
-			buildings = new HashSet<HomeBuilding>(); 
-		}
-		buildings.add(building);
-	}
+//	public void addBuilding(HomeBuilding building) {
+//		if(buildings == null) {
+//			buildings = new HashSet<HomeBuilding>(); 
+//		}
+//		buildings.add(building);
+//	}
 }

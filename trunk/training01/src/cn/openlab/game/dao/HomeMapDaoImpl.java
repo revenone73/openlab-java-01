@@ -25,11 +25,4 @@ public class HomeMapDaoImpl extends
 		return (HomeMap)getHibernateTemplate().get(HomeMap.class, id);
 	}
 
-	@Override
-	public void updateHomeMap(HomeMap map, HomeBuilding building) {
-		Integer id = map.getId();
-		map = getHomeMapById(id);
-		map.addBuilding(building);
-	}
-
 }
