@@ -17,6 +17,7 @@ public class HomeBuilding {
 	private Integer w;
 	private Integer h;
 	private String image;
+	public HomeMap homeMap;
 	
 	@Id
 	@GeneratedValue
@@ -66,8 +67,6 @@ public class HomeBuilding {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	public HomeMap homeMap;
 
 	@ManyToOne
 	public HomeMap getHomeMap() {
