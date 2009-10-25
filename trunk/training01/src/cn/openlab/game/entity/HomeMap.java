@@ -1,15 +1,12 @@
 package cn.openlab.game.entity;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,6 +16,7 @@ public class HomeMap {
 
 	private Integer id;
 	private String description;
+	private Set<HomeBuilding> buildings;
 	
 	@Column
 	public String getDescription() {
@@ -27,8 +25,6 @@ public class HomeMap {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	private Set<HomeBuilding> buildings;
-	
 	@Id
 	@GeneratedValue
 	public Integer getId() {
@@ -38,7 +34,7 @@ public class HomeMap {
 		this.id = id;
 	}
 	
-	@OneToMany(mappedBy="homeMap", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="homeMap")
 	public Set<HomeBuilding> getBuildings() {
 		return buildings;
 	}
