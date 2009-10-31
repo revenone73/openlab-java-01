@@ -32,5 +32,7 @@
 		<mapping class="cn.openlab.game.entity.ChatMessage"/>
 		<mapping class="cn.openlab.game.entity.HomeMap"/>
 		<mapping class="cn.openlab.game.entity.HomeBuilding"/>
+		<mapping class="cn.openlab.game.entity.ResourceType"/>
+		<mapping class="cn.openlab.game.entity.ResourceResumption"/>
 	</session-factory>
 </hibernate-configuration>

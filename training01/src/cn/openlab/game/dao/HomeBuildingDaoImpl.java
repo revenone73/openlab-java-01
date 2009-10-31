@@ -12,4 +12,13 @@ public class HomeBuildingDaoImpl extends HibernateDaoSupport implements
 		return (Integer) getHibernateTemplate().save(building);
 	}
 
+	@Override
+	public void deleteHomeBuilding(Integer id) {
+		HomeBuilding hb = (HomeBuilding)getHibernateTemplate().load(HomeBuilding.class, id);
+		if(hb != null) {
+			getHibernateTemplate().delete(hb);
+		}
+		
+	}
+
 }
