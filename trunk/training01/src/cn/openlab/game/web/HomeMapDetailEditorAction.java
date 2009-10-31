@@ -76,4 +76,12 @@ public class HomeMapDetailEditorAction {
 		}
 		return execute();
 	}
+	
+	public String delete() {
+		Integer id = homeBuilding.getId();
+		if(id != null) {
+			homeBuildingDao.deleteHomeBuilding(id);
+		}
+		return execute();
+	}
 }
